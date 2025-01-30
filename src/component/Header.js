@@ -11,7 +11,7 @@ export default function Header() {
     linkedin: "https://www.linkedin.com/in/prince-ekpenyong/",
     phone: "234-8061325196",
   };
-  const picture = "images/profilee.jpg"; // Replace with actual path
+  const picture = "images/profileee.jpg"; // Replace with actual path
 
   return (
     <header className="mb-12 bg-white p-4 rounded-2xl shadow-lg w-full max-w-full mx-auto mt-8">
