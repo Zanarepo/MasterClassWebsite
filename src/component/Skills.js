@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
-  FaChartLine,
-  FaUsers,
-  FaDatabase,
-  FaClipboardList,
-  FaTasks,
-  FaLightbulb,
-  FaProjectDiagram,
-  FaFigma,
-  FaCodeBranch,
-  FaCogs,
-  FaHandshake,
-  FaLayerGroup,
-  FaFileAlt,
-  FaCog
+  FaChartLine, FaUsers, FaDatabase, FaClipboardList, FaTasks, FaLightbulb, FaProjectDiagram,
+  FaFigma,FaUserCheck ,FaCodeBranch, FaList , FaSitemap , FaChartBar , FaCogs, FaHandshake, FaLayerGroup, FaFileAlt, FaCog
 } from "react-icons/fa";
 
 export default function Skills() {
   const skills = [
     { name: "Agile Development", level: 90, icon: <FaChartLine /> },
     { name: "Cross-Functional Collaboration", level: 85, icon: <FaUsers /> },
-    { name: "API Knowledge & Testing (Postman)", level: 75, icon: <FaDatabase /> },
+    { name: "API Skills & Testing (Postman)", level: 75, icon: <FaDatabase /> },
     { name: "Data Analysis", level: 80, icon: <FaClipboardList /> },
     { name: "Data-Driven Mindset", level: 85, icon: <FaLightbulb /> },
     { name: "Decision-Making", level: 80, icon: <FaTasks /> },
@@ -38,43 +26,52 @@ export default function Skills() {
     { name: "Technical Documentation", level: 60, icon: <FaFileAlt /> },
     { name: "Understanding Databases", level: 75, icon: <FaDatabase /> },
     { name: "Version Control (Git)", level: 45, icon: <FaCodeBranch /> },
+    { name: "User Research ", level: 75, icon: <FaUserCheck  /> },
+    { name: "Market Research ", level: 75, icon: <FaChartBar  /> },
+    { name: "Product Strategy  ", level: 75, icon: <FaSitemap   /> },
+    { name: "Backlog Prioritization ", level: 85, icon: <FaList    /> },
+
+     
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % skills.length); // Loops back to the start
-    }, 3000);
-  
-    return () => clearInterval(interval); // Clean up interval on unmount
-  }, [skills.length]); // Add skills.length as a dependency
-  
+    const slider = sliderRef.current;
+    let scrollAmount = 0;
+
+    const scroll = () => {
+      if (slider) {
+        scrollAmount += 1;
+        if (scrollAmount >= slider.scrollWidth / 2) {
+          scrollAmount = 0; // Reset to create infinite loop effect
+        }
+        slider.scrollLeft = scrollAmount;
+      }
+    };
+
+    const interval = setInterval(scroll, 30); // Adjust speed here
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="mb-12 bg-white p-6 rounded-2xl shadow-lg w-full px-4 mt-16">
-       <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
-        <FaCog className="inline-block text-blue-600 mr-2" /> {/* Icon for the skills section */}
-        Skills
+      <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
+        <FaCog className="inline-block text-blue-800 mr-2" /> Skills
       </h2>
 
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {skills.map((skill, index) => (
-            <div key={index} className="min-w-full px-4">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-2">
-                  <span className="text-xl text-blue-600">{skill.icon}</span>
-                  <span className="text-gray-800 font-medium">{skill.name}</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                  <div
-                    className="bg-blue-600 h-3 rounded-full transition-all"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
+      <div className="relative w-full overflow-hidden">
+        <div ref={sliderRef} className="flex space-x-10 whitespace-nowrap overflow-hidden">
+          {[...skills, ...skills].map((skill, index) => ( // Duplicate for infinite effect
+            <div key={index} className="flex flex-col items-center min-w-[200px]">
+              <div className="bg-white p-4 rounded-full text-blue-800 shadow-md">{skill.icon}</div>
+              <p className="font-semibold mt-2">{skill.name}</p>
+              <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden mt-2">
+                <div
+                  className="bg-blue-700 h-3 rounded-full transition-all"
+                  style={{ width: `${skill.level}%` }}
+                ></div>
               </div>
             </div>
           ))}

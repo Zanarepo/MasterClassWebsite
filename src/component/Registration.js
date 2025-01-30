@@ -9,8 +9,8 @@ export default function Registration() {
   const finalPrice = referred ? originalPrice * (1 - discount) : originalPrice;
 
   return (
-    <section className="bg-white p-8 rounded-lg shadow-lg mt-12 max-w-4xl mx-auto">
-      <h2 className="text-3xl font-semibold text-center text-blue-600 mb-8">
+    <section className="bg-white w-full rounded-lg shadow-md mt-12">
+      <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
         Product MasterClass Registration
       </h2>
 
@@ -48,7 +48,7 @@ export default function Registration() {
             <strong>Evening Session:</strong> 7:00 PM - 9:00 PM (Tuesdays, Wednesdays, and Fridays)
           </p>
           <p className="text-lg text-gray-800">
-            <strong>Flexible Schedule or 1-on-1 Session? :</strong> We offer that too, get in touch with Us.
+            <strong>Flexible Schedule or 1-on-1 Session ? :</strong> We offer that too, get in touch with Us.
           </p>
         </div>
 

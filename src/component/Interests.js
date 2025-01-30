@@ -11,8 +11,8 @@ export default function Interests() {
 
   return (
     <section className="mb-12">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-        <span className="text-blue-600">My Interests</span>
+      <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
+        <span className="text-blue-800">My Interests</span>
       </h2>
       <div className="flex flex-wrap justify-center gap-6">
         {interests.map((interest, index) => (

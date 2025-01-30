@@ -24,7 +24,7 @@ export default function Projects() {
       {/* Header */}
       <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
       
-        <FaProjectDiagram className="inline-block text-blue-600 mr-2" />
+        <FaProjectDiagram className="inline-block text-blue-800 mr-2" />
         <span>Personal Projects</span>
       </h2>
       

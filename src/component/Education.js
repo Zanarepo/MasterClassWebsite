@@ -14,7 +14,7 @@ export default function Education() {
     <section className="mb-12">
       {/* Education Header */}
       <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
-        <FaGraduationCap className="inline-block text-blue-600 mr-2" /> Education
+        <FaGraduationCap className="inline-block text-blue-800 mr-2" /> Education
       </h2>
 
       {/* Degree Cards with Icons */}

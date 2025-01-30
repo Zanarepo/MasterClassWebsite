@@ -61,7 +61,7 @@ export default function Features() {
     <section className="mb-12">
       {/* Header */}
       <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">
-        <span className="text-blue-600">Project Features</span>
+        <span className="text-blue-800">Project Features</span>
       </h2>
 
       {projectFeatures.map((project, index) => (

@@ -41,8 +41,8 @@ export default function ReviewPage() {
   }, []);
 
   return (
-    <section className="bg-white p-8 rounded-lg shadow-lg mt-12">
-      <h2 className="text-3xl font-semibold text-center text-blue-600 mb-6">What My Mentees Are Saying</h2>
+    <section className="bg-white w-full rounded-lg shadow-md mt-12">
+      <h2 className="text-3xl font-semibold text-blue-800 mb-6 text-center">What My Mentees Are Saying</h2>
 
       {/* Review Slider */}
       <div className="overflow-hidden">
