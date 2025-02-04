@@ -14,7 +14,8 @@ import Reviews from "./Reviews"
 import ChatWithZee from "./ChatWithZee"
 import CountDown from "./CountDown"
 import WelcomePopUp from "./WelcomePopUp"
-
+import BookSession from "./Users/BookSession"
+//import RegistrationForm from  "./Users/RegistrationForm";
 
 
 
@@ -33,7 +34,7 @@ const HomePage = () => {
  {/* Interests Section */}
  <Registration />
 
-    
+ <BookSession/>
 
       {/* Experience Section */}
       <Experience />

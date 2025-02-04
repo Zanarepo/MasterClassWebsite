@@ -1,7 +1,15 @@
-import React from "react";
-import { FaDatabase, FaProjectDiagram,FaChalkboardTeacher, FaChartLine, FaCode, FaTasks, FaCodeBranch, FaCogs, FaShieldAlt, FaClipboardList, FaBalanceScale, FaRegClipboard, FaFileAlt, FaUsers } from "react-icons/fa";
+import React, { useState } from "react";
+import RegistrationForm from "./Users/RegistrationForm";
+import { 
+  FaDatabase, FaProjectDiagram, FaChalkboardTeacher, FaChartLine, FaCode, 
+  FaTasks, FaCodeBranch, FaCogs, FaShieldAlt, FaClipboardList, FaBalanceScale, 
+  FaRegClipboard, FaFileAlt, FaUsers 
+} from "react-icons/fa";
+ // Import the RegistrationForm component
 
 export default function MasterClass() {
+  const [showForm, setShowForm] = useState(false);
+
   const topics = [
     { name: "Understanding Databases as a PM", icon: <FaDatabase className="text-blue-600" /> },
     { name: "Understanding APIs and Different API Requests", icon: <FaCode className="text-blue-600" /> },
@@ -42,16 +50,19 @@ export default function MasterClass() {
       {/* Call to Action */}
       <div className="text-center">
         <p className="text-lg text-gray-800 mb-4">
-          Ready to take your product management skills to the next level? Book a session now to get started!
+          Ready to take your product management skills to the next level? Click on 'Book a session' now to get started!
         </p>
-        <a
-          href="https://calendar.app.google/1F4kPffaTvCTQVt26"  // Replace with your actual calendar link
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-blue-600 text-white text-lg px-6 py-3 rounded-lg shadow-lg hover:bg-blue-800 transition duration-300"
-        >
-          Book Your Session
-        </a>
+
+        {!showForm ? (
+          <button
+            onClick={() => setShowForm(true)}
+            className="inline-block bg-blue-600 text-white text-lg px-6 py-3 rounded-lg shadow-lg hover:bg-blue-800 transition duration-300"
+          >
+            Book Your Session
+          </button>
+        ) : (
+          <RegistrationForm onClose={() => setShowForm(false)} />
+        )}
       </div>
     </section>
   );

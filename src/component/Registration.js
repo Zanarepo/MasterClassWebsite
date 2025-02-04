@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import { FaCalendarAlt, FaClock, FaTag, FaWhatsapp } from "react-icons/fa";
+import { FaCalendarAlt, FaClock, FaTag, FaWhatsapp, FaGift } from "react-icons/fa";
 
 export default function Registration() {
   const [referred, setReferred] = useState(false); // Tracks if the user has a referral
-  
+  const [referralSuccess, setReferralSuccess] = useState(false); // Tracks if referral was successful
+
   const originalPrice = 15000; // Original price for the masterclass
-  const discount = 0.25; // 25% referral discount
+  const discount = 0.15; // 20% referral discount
   const finalPrice = referred ? originalPrice * (1 - discount) : originalPrice;
+
+  // Function to generate WhatsApp referral message
+  const handleReferral = () => {
+    const message = encodeURIComponent(
+      "Hey! I just found an amazing Product Masterclass, and you can get 15% off by using my referral! Register here: https://zee-masterclass.netlify.app/"
+    );
+    const whatsappLink = `https://wa.me/?text=${message}`;
+    window.open(whatsappLink, "https://zee-masterclass.netlify.app/");
+    setReferralSuccess(true);
+  };
 
   return (
     <section className="bg-white w-full rounded-lg shadow-md mt-12">
@@ -48,7 +59,7 @@ export default function Registration() {
             <strong>Evening Session:</strong> 7:00 PM - 9:00 PM (Tuesdays, Wednesdays, and Fridays)
           </p>
           <p className="text-lg text-gray-800">
-            <strong>Flexible Schedule or 1-on-1 Session ? :</strong> We offer that too, get in touch with Us.
+            <strong>Flexible Schedule or 1-on-1 Session?</strong> We offer that too, get in touch with us.
           </p>
         </div>
 
@@ -59,16 +70,15 @@ export default function Registration() {
             <span>Pricing</span>
           </h3>
           <p className="text-lg text-gray-800">
-            Early Bird Price: <span className="line-through">₦{originalPrice.toLocaleString()}</span>{" "}
+            Standard Price: <span className="line-through">₦{originalPrice.toLocaleString()}</span>{" "}
             <span className="font-semibold text-green-600">₦{finalPrice.toLocaleString()}</span>
           </p>
           <p className="text-sm text-gray-600">
-            *If you refer a friend, you get a 25% discount on your registration!
+            *Paying now? 15% discount awaits you!
           </p>
         </div>
-
-        {/* Referral Discount Toggle */}
-        <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+  {/* Referral Discount Toggle */}
+  <div className="bg-gray-50 p-6 rounded-lg shadow-md">
           <label className="flex items-center space-x-2">
             <input 
               type="checkbox" 
@@ -76,9 +86,33 @@ export default function Registration() {
               onChange={() => setReferred(!referred)} 
               className="form-checkbox text-blue-600"
             />
-            <span className="text-lg">I have a referral</span>
+            <span className="text-lg">Early Bird Price?</span>
           </label>
         </div>
+        {/* Referral Bonus Section */}
+        <div className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center justify-center space-x-2">
+            <FaGift className="text-blue-600" />
+            <span>Refer & Earn 15% Bonus</span>
+          </h3>
+          <p className="text-lg text-gray-700 mb-4">
+            Invite a friend to register, and you'll receive 15% of their registration fee as a bonus!
+          </p>
+          <button
+            onClick={handleReferral}
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-800 transition duration-300"
+          >
+            Refer a Friend
+          </button>
+
+          {referralSuccess && (
+            <p className="text-green-600 mt-3 font-semibold">
+              🎉 Your referral link has been shared!
+            </p>
+          )}
+        </div>
+
+      
 
         {/* CTA Section */}
         <div className="bg-blue-600 p-8 rounded-lg shadow-md text-center text-white">
