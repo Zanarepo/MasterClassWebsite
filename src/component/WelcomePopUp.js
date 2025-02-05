@@ -6,7 +6,7 @@ export default function WelcomePopup() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-    }, 5000); // Hide after 5 seconds
+    }, 3000); // Hide after 3 seconds
 
     return () => clearTimeout(timer);
   }, []);

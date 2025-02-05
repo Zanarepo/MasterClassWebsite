@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaTimes } from "react-icons/fa"; // Close button icon
 
 export default function OngoingRegistration() {
-  const calculateTimeLeft = () => {
+  const [endTimestamp] = useState(() => {
     const endDate = new Date();
     endDate.setDate(endDate.getDate() + 8); // Registration ends in 8 days
-    const now = new Date();
-    const difference = endDate - now;
+    return endDate.getTime();
+  });
 
-    if (difference <= 0) return null; // Hide when countdown ends
+  const calculateTimeLeft = useCallback(() => {
+    const now = new Date().getTime();
+    const difference = endTimestamp - now;
+
+    if (difference <= 0) return null; // Countdown finished
 
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -16,18 +20,24 @@ export default function OngoingRegistration() {
       minutes: Math.floor((difference / (1000 * 60)) % 60),
       seconds: Math.floor((difference / 1000) % 60),
     };
-  };
+  }, [endTimestamp]);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const newTimeLeft = calculateTimeLeft();
+      if (!newTimeLeft) {
+        clearInterval(timer);
+        setVisible(false); // Hide banner when countdown ends
+      } else {
+        setTimeLeft(newTimeLeft);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [calculateTimeLeft]);
 
   if (!timeLeft || !visible) return null; // Hide when countdown ends or dismissed
 
