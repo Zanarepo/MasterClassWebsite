@@ -9,7 +9,7 @@ export default function Header() {
   const contact = {
     email: "princegekpenyong@gmail.com",
     linkedin: "https://www.linkedin.com/in/prince-ekpenyong/",
-    phone: "234-8061325196",
+    phone: "234-9167690043",
   };
   const picture = "images/profileee.jpg"; // Replace with actual path
 
