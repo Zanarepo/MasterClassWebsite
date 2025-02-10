@@ -3,10 +3,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./component/HomePage"; // Import HomePage
 import APITaskComponent from "./component/Task/APITaskComponent";
-import usePageTracking from "./component/usePageTracking";
+import UsePageTracking from "./component/UsePageTracking";
 
 const PageTracker = () => {
-  usePageTracking();
+  UsePageTracking();
   return null;
 };
 
