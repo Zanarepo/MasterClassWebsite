@@ -12,7 +12,7 @@ import MasterClass from "./MasterClass"
 import Registration from "./Registration"
 import Reviews from "./Reviews"
 import ChatWithZee from "./ChatWithZee"
-import CountDown from "./CountDown"
+//import CountDown from "./CountDown"
 import WelcomePopUp from "./WelcomePopUp"
 import BookSession from "./Users/BookSession"
 //import RegistrationForm from  "./Users/RegistrationForm";
@@ -66,8 +66,8 @@ const HomePage = () => {
        <Reviews />
       <WelcomePopUp/>
      
-      <CountDown/>
-      {/* Contact Section 
+     {/*  <CountDown/>
+      Contact Section 
       <Contact />*/}
     </div>
   );

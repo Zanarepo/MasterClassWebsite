@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TransferDetails from './TransferDetails';
 import { FaCalendarAlt, FaClock, FaTag, FaWhatsapp, FaGift } from "react-icons/fa";
 
 export default function Registration() {
@@ -56,10 +57,11 @@ export default function Registration() {
             <strong>Afternoon Session:</strong> 12:30 PM - 2:30 PM
           </p>
           <p className="text-lg text-gray-800">
-            <strong>Evening Session:</strong> 7:00 PM - 9:00 PM (Tuesdays, Wednesdays, and Fridays)
+            <strong>Evening Session:</strong> 4:00 PM - 6:00 PM (Tuesdays, Wednesdays, and Fridays)
           </p>
           <p className="text-lg text-gray-800">
-            <strong>Flexible Schedule or 1-on-1 Session?</strong> We offer that too, get in touch with us.
+            <strong>Flexible Schedule or 1-on-1 Session?</strong> We offer that too, get in touch with us. <br/>
+        <strong>(It attracts an additional fee).</strong>  
           </p>
         </div>
 
@@ -74,8 +76,9 @@ export default function Registration() {
             <span className="font-semibold text-green-600">₦{finalPrice.toLocaleString()}</span>
           </p>
           <p className="text-sm text-gray-600">
-            *Paying now? 15% discount awaits you!
+            Paying now? 
           </p>
+          <TransferDetails/>
         </div>
   {/* Referral Discount Toggle */}
   <div className="bg-gray-50 p-6 rounded-lg shadow-md">
@@ -87,6 +90,7 @@ export default function Registration() {
               className="form-checkbox text-blue-600"
             />
             <span className="text-lg">Early Bird Price?</span>
+     
           </label>
         </div>
         {/* Referral Bonus Section */}
