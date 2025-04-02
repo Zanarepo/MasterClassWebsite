@@ -54,10 +54,11 @@ export default function Registration() {
             <span>Session Timings</span>
           </h3>
           <p className="text-lg text-gray-800">
-            <strong>Afternoon Session:</strong> 12:30 PM - 2:30 PM
+             {/* Session Timings 
+            <strong>Afternoon Session:</strong> 12:30 PM - 2:30 PM*/}
           </p>
           <p className="text-lg text-gray-800">
-            <strong>Evening Session:</strong> 4:00 PM - 6:00 PM (Tuesdays, Wednesdays, and Fridays)
+            <strong>Evening Session:</strong> 4:00 PM - 6:00 PM (Mondays, Wednesdays, and Fridays)
           </p>
           <p className="text-lg text-gray-800">
             <strong>Flexible Schedule or 1-on-1 Session?</strong> We offer that too, get in touch with us. <br/>
