@@ -6,7 +6,7 @@ export default function Registration() {
   const [referred, setReferred] = useState(false); // Tracks if the user has a referral
   const [referralSuccess, setReferralSuccess] = useState(false); // Tracks if referral was successful
 
-  const originalPrice = 15000; // Original price for the masterclass
+  const originalPrice = 20000; // Original price for the masterclass
   const discount = 0.15; // 20% referral discount
   const finalPrice = referred ? originalPrice * (1 - discount) : originalPrice;
 
@@ -58,7 +58,7 @@ export default function Registration() {
             <strong>Afternoon Session:</strong> 12:30 PM - 2:30 PM*/}
           </p>
           <p className="text-lg text-gray-800">
-            <strong>Evening Session:</strong> 4:00 PM - 6:00 PM (Mondays, Wednesdays, and Fridays)
+            <strong>Evening Session:</strong> 4:00 PM - 6:00 PM (Mondays,  and Thursdays)
           </p>
           <p className="text-lg text-gray-800">
             <strong>Flexible Schedule or 1-on-1 Session?</strong> We offer that too, get in touch with us. <br/>
